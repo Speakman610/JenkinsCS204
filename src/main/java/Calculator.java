@@ -71,7 +71,7 @@ class Calculator {
         SecureRandom random = new SecureRandom();
         long random1 = (long) (LocalDateTime.now().getNano() + LocalDateTime.now().getSecond()) * random.nextInt(1000);
         long random2 = (long) (LocalDateTime.now().getNano() + LocalDateTime.now().getSecond()) * random.nextInt(1000);
-        long uuid = Math.max(random1, random2) / random.nextInt(100);
+        long uuid = Math.max(random1, random2) / (random.nextInt(100) + 1);
         return n.concat("" + uuid);
     }
 
