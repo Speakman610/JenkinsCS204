@@ -1,6 +1,7 @@
 import java.security.SecureRandom;
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 class Calculator {
@@ -70,7 +71,8 @@ class Calculator {
     if you run this function twice with the same String input, it must return 2 unique String IDs
      */
     String createUniqueID(String n){
-        int idNum = LocalDateTime.now().getNano();
+        SecureRandom random = new SecureRandom();
+        int idNum = (LocalDateTime.now().getNano() + LocalDateTime.now().getSecond() + random.nextInt(100000)) * random.nextInt(100);
         return n.concat("" + idNum);
     }
 
