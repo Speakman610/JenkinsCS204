@@ -1,7 +1,4 @@
 import java.security.SecureRandom;
-import java.sql.Date;
-import java.sql.Time;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 class Calculator {
@@ -72,8 +69,10 @@ class Calculator {
      */
     String createUniqueID(String n){
         SecureRandom random = new SecureRandom();
-        int idNum = (LocalDateTime.now().getNano() + LocalDateTime.now().getSecond() + random.nextInt(100000)) * random.nextInt(100);
-        return n.concat("" + idNum);
+        long random1 = (long) (LocalDateTime.now().getNano() + LocalDateTime.now().getSecond()) * random.nextInt(1000);
+        long random2 = (long) (LocalDateTime.now().getNano() + LocalDateTime.now().getSecond()) * random.nextInt(1000);
+        long uuid = Math.max(random1, random2) / random.nextInt(100);
+        return n.concat("" + uuid);
     }
 
 
