@@ -38,7 +38,7 @@ class Calculator {
     .
     .
     .
-    etc
+    etc.
      */
     int fibonacciNumberFinder(int n){
         if (n <= 0) return 0;
